@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace specs;
 
@@ -12,6 +13,6 @@ internal class Basket
 
 	public decimal Total()
 	{
-		return 1234.56m; // temporary failing result
+		return _products.Sum(p => p.Price);
 	}
 }
