@@ -35,8 +35,23 @@ public class Steps
 	[Given(@"the basket has (.*) (.*)")]
 	public void GivenTheBasketHasBreadButterAndMilk(int qty, string productName)
 	{
-		// Lookups in a list like this are less efficient than dictionaries etc but is fine for a quick proof of concept, can be optimized later.
-		// Would probably be replaced wholesale with a proper data store & cache anyway.
-		_basket.Add(_products.Single(p => productName.Equals(p.Name,StringComparison.InvariantCultureIgnoreCase)));
+		// note to reader: we could potentially give the basket a method for adding multiples, but this'll do for now, what it looked like would depend on the shape of the real world problem at hand
+		qty.Times(() =>
+			// Lookups in a list like this are less efficient than dictionaries etc but is fine for a quick proof of concept, can be optimized later.
+			// Would probably be replaced wholesale with a proper data store & cache anyway.
+			_basket.Add(_products.Single(p => productName.Equals(p.Name, StringComparison.InvariantCultureIgnoreCase)))
+		);
+	}
+}
+
+public static class IntExtensions
+{
+	public static void Times(this int count, Action action)
+	{
+		// https://stackoverflow.com/questions/3932413/is-there-a-shorter-simpler-version-of-the-for-loop-to-anything-x-times/3932432#3932432
+		for (int i = 0; i < count; i++)
+		{
+			action();
+		}
 	}
 }
