@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+using FluentAssertions;
+
 using TechTalk.SpecFlow;
 
 namespace specs;
@@ -18,15 +20,14 @@ public class Steps
 	};
 
 	[Then(@"the total should be £(.*)")]
-	public void ThenTheTotalShouldBe(decimal p0)
+	public void ThenTheTotalShouldBe(decimal expectedTotal)
 	{
-		ScenarioContext.StepIsPending();
+		_basket.Total().Should().Be(expectedTotal);
 	}
 
 	[When(@"I total the basket")]
 	public void WhenITotalTheBasket()
 	{
-		ScenarioContext.StepIsPending();
 	}
 
 	[Given(@"the basket has (.*) (.*)")]
@@ -53,9 +54,13 @@ internal class Product
 internal class Basket
 {
 	private List<Product> _products = new();
-
 	public void Add(Product product)
 	{
 		_products.Add(product);
+	}
+
+	public decimal Total()
+	{
+		return 1234.56m; // temporary failing result
 	}
 }
