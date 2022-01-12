@@ -17,8 +17,8 @@ public class Steps
 		ScenarioContext.StepIsPending();
 	}
 
-	[Given(@"the basket has (.*) bread, (.*) butter and (.*) milk")]
-	public void GivenTheBasketHasBreadButterAndMilk(int bread, int butter, int milk)
+	[Given(@"the basket has (.*) (.*)")]
+	public void GivenTheBasketHasBreadButterAndMilk(int qty, string what)
 	{
 		ScenarioContext.StepIsPending();
 	}
