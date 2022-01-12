@@ -11,3 +11,9 @@ What is this? An implementation for a tech test demonstrating basic coding and t
 # Dependencies
 
 dotnet version controlled by [asdf-vm](https://asdf-vm.com/)
+
+# Where to start
+
+* Executable BDD Gherkin for the original spec [specs/Discounts.feature](specs/Discounts.feature)
+* Other unit tests (`*Tests.cs`) in [specs/](specs/)
+* Runtime library code is in [BasketLib/](BasketLib/)
