@@ -27,11 +27,6 @@ public class Steps
 		_basket.Total().Should().Be(expectedTotal);
 	}
 
-	[When(@"I total the basket")]
-	public void WhenITotalTheBasket()
-	{
-	}
-
 	[Given(@"the basket has (.*) (.*)")]
 	public void GivenTheBasketHasBreadButterAndMilk(int qty, string productName)
 	{
@@ -41,5 +36,11 @@ public class Steps
 			// Would probably be replaced wholesale with a proper data store & cache anyway.
 			_basket.Add(_products.Single(p => productName.Equals(p.Name, StringComparison.InvariantCultureIgnoreCase)))
 		);
+	}
+
+	[When(@"I apply discounts")]
+	public void WhenIApplyDiscounts()
+	{
+		_basket.ApplyDiscounts(new Discounter());
 	}
 }

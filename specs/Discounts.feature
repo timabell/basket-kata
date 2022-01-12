@@ -14,28 +14,28 @@ Scenario: one of each (no discounts)
 	Given the basket has 1 bread
 		And the basket has 1 butter
 		And the basket has 1 milk
-	When I total the basket
+	When I apply discounts
 	Then the total should be £2.95
 
 Scenario: two butter (no discounts)
 	Given the basket has 2 butter
-	When I total the basket
+	When I apply discounts
 	Then the total should be £1.60
 
 Scenario: two of each (butter/bread discount)
 	Given the basket has 2 butter
 		And the basket has 2 bread
-	When I total the basket
+	When I apply discounts
 	Then the total should be £3.10
 
 Scenario: lots of milk (milk discount)
 	Given the basket has 4 milk
-	When I total the basket
+	When I apply discounts
 	Then the total should be £3.45
 
 Scenario: lots of everything (butter/bread + milk discounts)
 	Given the basket has 2 butter
 		And the basket has 1 bread
 		And the basket has 8 milk
-	When I total the basket
+	When I apply discounts
 	Then the total should be £9.00
