@@ -10,6 +10,14 @@ public class Discounter : IDiscounter
 {
 	public IEnumerable<Discount> Calculate(List<Product> products)
 	{
-		return new List<Discount>();
+		var discounts = new List<Discount>();
+		// todo: replace string matching with some better referencing system
+		// 4th milk free (todo: validate with BA whether this also applies to 8th milk, currently no)
+		var milks = products.Where(p => p.Name.Equals("milk", StringComparison.InvariantCultureIgnoreCase));
+		if (milks.Count() > 3)
+		{
+			discounts.Add(new Discount{Amount = milks.First().Price, Description = "Free 4th milk"});
+		}
+		return discounts;
 	}
 }
