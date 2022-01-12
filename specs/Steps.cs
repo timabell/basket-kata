@@ -5,6 +5,7 @@ using System.Linq;
 using BasketLib;
 
 using FluentAssertions;
+
 using TechTalk.SpecFlow;
 
 namespace specs;
@@ -12,12 +13,12 @@ namespace specs;
 [Binding]
 public class Steps
 {
-	private readonly Basket _basket = new Basket();
-	private readonly List<Product> _products = new List<Product> // list lifted from example spec, would be data driven in reality
+	private readonly Basket _basket = new();
+	private readonly List<Product> _products = new() // list lifted from example spec, would be data driven in reality
 	{
-		new((string)"Butter", (decimal)0.8m),
-		new((string)"Milk", (decimal)1.15m),
-		new((string)"Bread", (decimal)1m),
+		new((string)"Butter", 0.8m),
+		new((string)"Milk", 1.15m),
+		new((string)"Bread", 1m),
 	};
 
 	[Then(@"the total should be £(.*)")]
