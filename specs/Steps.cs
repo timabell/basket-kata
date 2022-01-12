@@ -38,29 +38,3 @@ public class Steps
 		_basket.Add(_products.Single(p => productName.Equals(p.Name,StringComparison.InvariantCultureIgnoreCase)));
 	}
 }
-
-internal class Product
-{
-	public string Name { get; }
-	public decimal Price { get; }
-
-	public Product(string name, decimal price)
-	{
-		Name = name;
-		Price = price;
-	}
-}
-
-internal class Basket
-{
-	private List<Product> _products = new();
-	public void Add(Product product)
-	{
-		_products.Add(product);
-	}
-
-	public decimal Total()
-	{
-		return 1234.56m; // temporary failing result
-	}
-}
