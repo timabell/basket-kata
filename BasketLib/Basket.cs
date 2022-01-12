@@ -16,4 +16,9 @@ public class Basket
 	{
 		return _products.Sum(p => p.Price);
 	}
+
+	public void ApplyDiscounts(IDiscounter discounter)
+	{
+		//todo: discounter.Calculate(_products);
+	}
 }
