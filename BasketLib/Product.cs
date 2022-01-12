@@ -1,6 +1,6 @@
-namespace specs;
+namespace BasketLib;
 
-internal class Product
+public class Product
 {
 	public string Name { get; }
 	public decimal Price { get; }

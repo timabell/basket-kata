@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using FluentAssertions;
+using BasketLib;
 
+using FluentAssertions;
 using TechTalk.SpecFlow;
 
 namespace specs;
@@ -14,9 +15,9 @@ public class Steps
 	private readonly Basket _basket = new Basket();
 	private readonly List<Product> _products = new List<Product> // list lifted from example spec, would be data driven in reality
 	{
-		new("Butter", 0.8m),
-		new("Milk", 1.15m),
-		new("Bread", 1m),
+		new((string)"Butter", (decimal)0.8m),
+		new((string)"Milk", (decimal)1.15m),
+		new((string)"Bread", (decimal)1m),
 	};
 
 	[Then(@"the total should be £(.*)")]

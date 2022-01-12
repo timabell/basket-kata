@@ -1,9 +1,6 @@
-using System.Collections.Generic;
-using System.Linq;
+namespace BasketLib;
 
-namespace specs;
-
-internal class Basket
+public class Basket
 {
 	// todo: Convert products to list of basket items with product + discount so we have somewhere to store discounts, update total calcs to include them
 	// todo: Add a discount method, pass in a IDiscounter that takes actions with some kind of callback (to avoid tight coupling or embedding the discount code in the basket)
