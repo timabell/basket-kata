@@ -37,16 +37,17 @@ public class Discounter : IDiscounter
 
 	private static IEnumerable<Discount> MilkDiscount(IEnumerable<Product> products)
 	{
+		var discounts = new List<Discount>();
 		// todo: replace string matching with some better referencing system
-		var milks = products.Where(p => p.Name.Equals("milk", StringComparison.InvariantCultureIgnoreCase));
+		var milks = products.Where(p => p.Name.Equals("milk", StringComparison.InvariantCultureIgnoreCase)).ToList();
 
-		// 4th milk free (todo: validate with BA whether this also applies to 8th milk, currently no)
-		if (milks.Count() > 3)
+		int milkDiscounts = (int)Math.Floor(milks.Count / 4m); // every 4th milk free
+		for (int i = 0; i < milkDiscounts ; i++)
 		{
-			return new List<Discount> { new() { Amount = milks.First().Price, Description = "Free 4th milk" } };
+			discounts.Add(new Discount { Amount = milks.First().Price, Description = "Free 4th milk" });
 		}
 
-		return new List<Discount>();
+		return discounts;
 
 	}
 }

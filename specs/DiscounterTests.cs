@@ -12,16 +12,29 @@ namespace specs;
 public class DiscounterTests
 {
 	[Test]
-	public void AppliesMilkDiscount()
+	// boundary checks
+	[TestCase(3, 1.15, 0)]
+	[TestCase(4, 1.15, 1)]
+	[TestCase(5, 1.15, 1)]
+	// ...
+	[TestCase(7, 1.15, 1)]
+	[TestCase(8, 1.15, 2)]
+	[TestCase(9, 1.15, 2)]
+	public void AppliesMilkDiscount(int milkQty, decimal milkPrice, int expectedFreeMilkCount)
 	{
 		var discounter = new Discounter();
-		var milk = new Product("milk", 1.15m);
+		var milk = new Product("milk", milkPrice);
 		var basketItems = new List<Product>();
-		4.Times(()=> basketItems.Add(milk));
-		var discounts = discounter.Calculate(basketItems);
-		discounts.Should().ContainSingle();
-		discounts.Single().Amount.Should().Be(1.15m);
-		discounts.Single().Description.Should().Be("Free 4th milk");
+		milkQty.Times(() => basketItems.Add(milk));
+		var discounts = discounter.Calculate(basketItems).ToList();
+		discounts.Should().HaveCount(expectedFreeMilkCount);
+		if (expectedFreeMilkCount > 0)
+		{
+			discounts.Should().OnlyContain(
+				d => d.Amount == milkPrice
+				     && d.Description == "Free 4th milk"
+			);
+		}
 	}
 
 	[Test]
