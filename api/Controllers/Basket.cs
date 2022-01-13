@@ -26,6 +26,7 @@ public class BasketController : ControllerBase
 	[HttpPost("Add")]
 	public void Add(Product product)
 	{
+		// todo: obviously the client shouldn't be able to set the price of the product. The product/basket modelling needs work.
 		basket.Add(product);
 		basket.ApplyDiscounts(new Discounter());
 	}
