@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+#basket {
+	width: 500px;
+	margin: 0 auto; /* centre align */
+	border: 1px solid #53354a;
+	text-align: left;
+	padding: 10px;
+}
