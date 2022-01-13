@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "specs", "specs\specs.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketLib", "BasketLib\BasketLib.csproj", "{432BF069-8E55-4DDC-AEB9-733176D986F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api", "api\api.csproj", "{0EC7E482-EEF3-4E1E-81B8-B838773DFF44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{432BF069-8E55-4DDC-AEB9-733176D986F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{432BF069-8E55-4DDC-AEB9-733176D986F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{432BF069-8E55-4DDC-AEB9-733176D986F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EC7E482-EEF3-4E1E-81B8-B838773DFF44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EC7E482-EEF3-4E1E-81B8-B838773DFF44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EC7E482-EEF3-4E1E-81B8-B838773DFF44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EC7E482-EEF3-4E1E-81B8-B838773DFF44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
