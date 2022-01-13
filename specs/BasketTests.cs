@@ -36,12 +36,24 @@ public class BasketTests
 		basket.ApplyDiscounts(discounter);
 		basket.Total().Should().Be(8.89m);
 	}
+
+	[Test]
+	public void TestDiscountItemAccess()
+	{
+		var basket = new Basket();
+		basket.Add(new Product("example", 10m));
+		var discounter = new FakeDiscounter();
+		basket.ApplyDiscounts(discounter);
+		basket.Discounts.Should().ContainSingle(d => d == FakeDiscounter.FakeDiscount);
+	}
 }
 
 public class FakeDiscounter : IDiscounter
 {
+	public static readonly Discount FakeDiscount = new Discount { Amount = 1.11m, Description = "stub discount"};
+
 	public IEnumerable<Discount> Calculate(List<Product> products)
 	{
-		return new List<Discount> { new Discount { Amount = 1.11m, Description = "stub discount"} };
+		return new List<Discount> { FakeDiscount };
 	}
 }
