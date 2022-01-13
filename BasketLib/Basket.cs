@@ -19,6 +19,7 @@ public class Basket
 
 	public void ApplyDiscounts(IDiscounter discounter)
 	{
+		Discounts.Clear();
 		Discounts.AddRange(discounter.Calculate(Products));
 	}
 }

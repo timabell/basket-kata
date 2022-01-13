@@ -32,8 +32,8 @@ public class BasketTests
 	{
 		var basket = new Basket();
 		basket.Add(new Product("example", 10m));
-		var discounter = new FakeDiscounter();
-		basket.ApplyDiscounts(discounter);
+		basket.ApplyDiscounts(new FakeDiscounter());
+		basket.ApplyDiscounts(new FakeDiscounter()); // duplicate call shouldn't double-up discounts
 		basket.Total().Should().Be(8.89m);
 	}
 
@@ -42,8 +42,8 @@ public class BasketTests
 	{
 		var basket = new Basket();
 		basket.Add(new Product("example", 10m));
-		var discounter = new FakeDiscounter();
-		basket.ApplyDiscounts(discounter);
+		basket.ApplyDiscounts(new FakeDiscounter());
+		basket.ApplyDiscounts(new FakeDiscounter()); // duplicate call shouldn't double-up discounts
 		basket.Discounts.Should().ContainSingle(d => d == FakeDiscounter.FakeDiscount);
 	}
 }
