@@ -22,4 +22,10 @@ public class Basket
 		Discounts.Clear();
 		Discounts.AddRange(discounter.Calculate(Products));
 	}
+
+	public void Clear()
+	{
+		Products.Clear();
+		Discounts.Clear();
+	}
 }
