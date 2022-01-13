@@ -17,3 +17,12 @@ dotnet version controlled by [asdf-vm](https://asdf-vm.com/)
 * Executable BDD Gherkin for the original spec [specs/Discounts.feature](specs/Discounts.feature)
 * Other unit tests (`*Tests.cs`) in [specs/](specs/)
 * Runtime library code is in [BasketLib/](BasketLib/)
+
+# API
+
+```
+cd api
+dotnet run
+```
+
+API docs can be found at <https://localhost:7187/swagger/> when running the app locally.
