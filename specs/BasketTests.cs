@@ -19,6 +19,15 @@ public class BasketTests
 	}
 
 	[Test]
+	public void TestItemAccess()
+	{
+		var basket = new Basket();
+		var product = new Product("foo", 1.23m);
+		basket.Add(product);
+		basket.Products.Should().ContainSingle(p => p == product);
+	}
+
+	[Test]
 	public void TestDiscountedBasketTotal()
 	{
 		var basket = new Basket();
