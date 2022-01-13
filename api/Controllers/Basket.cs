@@ -8,17 +8,11 @@ namespace api.Controllers;
 [Route("[controller]")]
 public class BasketController : ControllerBase
 {
-	// GET
+	private static Basket basket = new(); // stub in-memory storage for the basket. Todo: real persistence
+
 	[HttpGet("")]
-	public object Index()
+	public object Index() // todo: use a real type and check it shows in swagger
 	{
-		Basket basket = new();
-		basket.Add(new Product("cheese", 2.99m));
-		basket.Add(new Product("apple", 0.3m));
-		basket.Add(new Product("milk", .9m));
-		basket.Add(new Product("milk", .9m));
-		basket.Add(new Product("milk", .9m));
-		basket.Add(new Product("milk", .9m)); // magic string, 4th milk free
 		basket.ApplyDiscounts(new Discounter());
 
 		return new
@@ -27,5 +21,18 @@ public class BasketController : ControllerBase
 			basket.Discounts,
 			total = basket.Total(),
 		};
+	}
+
+	[HttpPost("Add")]
+	public void Add(Product product)
+	{
+		basket.Add(product);
+		basket.ApplyDiscounts(new Discounter());
+	}
+
+	[HttpPost("Clear")]
+	public void Clear()
+	{
+		basket.Clear();
 	}
 }
