@@ -21,8 +21,9 @@ dotnet version controlled by [asdf-vm](https://asdf-vm.com/)
 # API
 
 ```
-cd api
-dotnet run
+dotnet run --project api/api.csproj
 ```
 
 API docs can be found at <https://localhost:7187/swagger/> when running the app locally.
+
+This is a simple in-memory store of a basket to allow trying out the library code for real.
