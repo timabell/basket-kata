@@ -44,3 +44,12 @@
 	text-align: left;
 	padding: 10px;
 }
+
+h1 a:hover {
+	text-decoration: underline;
+	color: #616c7c;
+}
+h1 a {
+	text-decoration: none;
+	color: #354353;
+}
