@@ -13,9 +13,9 @@ function App() {
 		<div id="basket">
 			<h2>Add items</h2>
 			<div>
-				<label>Name: <input placeholder={"e.g. Milk"}></input></label>
+				<label>Name: <input placeholder="e.g. Milk"></input></label>
 				<br/>
-				<label>Price: <input placeholder={"£0.00"}></input></label>
+				<label>Price: <input placeholder="£0.00"></input></label>
 				<br/>
 				<button>Add</button>
 			</div>
